@@ -1,0 +1,19 @@
+<!-- SECTION 7 -->
+<footer class="container-fluid">
+  <div class="container">
+    <div class="grid align-items-center">
+      <div class="col-4 font-bold text-base">
+        <p>{{ phone }}</p>
+        <p>{{ email }}</p>
+      </div>
+      <div class="col-4 text-center font-bold text-base">
+        &copy; {{ copyright }}
+      </div>
+      <div class="col-4 flex justify-content-end gap-2">
+        <a *ngFor="let v of socialMedia" [href]="v.link" target="_blank">
+          <i [class]="'pi ' + v.icon"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

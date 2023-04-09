@@ -1,0 +1,187 @@
+<!-- SECTION 1 -->
+<section class="section-1 container-fluid">
+  <div class="container">
+    <div class="grid">
+      <div class="col-7 text flex flex-column justify-content-center">
+        <h3 class="text-6xl">Inscrivez vous à l'ISIPA</h3>
+        <h3 class="text-4xl mt-4">
+          Pour devenir spécialiste dans l’une de nos filières.
+        </h3>
+      </div>
+      <div class="col-5 media">
+        <img src="assets/image/sec1.png" alt="section-1" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2 -->
+<section class="section-2 container-fluid">
+  <div class="container">
+    <div class="grid justify-content-between">
+      <div class="col-6 media relative">
+        <iframe
+          src="https://www.youtube.com/embed/n3VP1ezevXo"
+          title="ISIPA INSCRIPTION 2022  - 2023"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+        <a
+          href="https://www.youtube.com/channel/UCwyAYVENpxnL15DUUl7czvQ"
+          target="_blank"
+          pButton
+          label="voir plus des vidéo de l'institut"
+          icon="pi pi-caret-right"
+          class="btn btn-inverse absolute"
+        ></a>
+      </div>
+      <div class="col-5 text flex flex-column justify-content-center gap-4">
+        <h3 class="text-xl text-center">
+          INSTITUT SUPERIEUR D’INFORMATIQUE PROGRAMMATION ET ANALYSE
+        </h3>
+        <p class="text-lg">
+          Avec 46 ans d’excellence dans l’enseignement Supérieur et
+          Universitaire, l’ISIPA est et reste la meilleure institution de
+          formation académique en informatique dans toute la République
+          Démocratique du Congo.
+        </p>
+        <h3 class="text-xl text-center">» ISIPA, une longueur d’avance «E</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3 -->
+<section class="section-3 container-fluid">
+  <div class="container">
+    <div class="grid justify-content-between align-items-center">
+      <div class="col-6 text flex flex-column justify-content-center">
+        <h3 class="text-3xl">
+          Nous vous proposons l’enseignement avec les meilleures conditions
+          possible
+        </h3>
+        <div class="accordion my-5 flex flex-column gap-4">
+          <div class="pl-5">
+            <h4 class="text-xl mb-1">Professeur reconnus</h4>
+            <p>
+              Nos formateurs sont des éducateurs reconnus par des grandes
+              universités national et international
+            </p>
+          </div>
+          <div class="pl-5">
+            <h4 class="text-xl mb-1">Cycle complet (LMD)</h4>
+            <p>
+              Votre apprentissage de la licence au master avec une connaissance
+              aiguisé dans la science
+            </p>
+          </div>
+          <div class="pl-5">
+            <h4 class="text-xl mb-1">Support numérique</h4>
+            <p>
+              Nous accompagnons nos étudiants dans l’apprentissage présentiel et
+              online, et bien plus encore
+            </p>
+          </div>
+        </div>
+        <div class="mt-2">
+          <button pButton label="Formulaire d'inscription"></button>
+        </div>
+      </div>
+      <div class="col-5 media grid">
+        <div class="col-6">
+          <img src="assets/image/sec3-1.jpg" alt="section-3-1" />
+        </div>
+        <div class="col-6">
+          <img src="assets/image/sec3-2.jpg" alt="section-3-2" />
+        </div>
+        <div class="col-12">
+          <img src="assets/image/sec3-3.jpg" alt="section-3-3" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 4 -->
+<section class="section-4 container-fluid">
+  <div class="container">
+    <h3 class="text-center text-3xl">Des formations diversifier</h3>
+    <p class="text-center mt-4 mb-6">
+      nous vous offrons des formations et orientations adapté à vos titres et
+      qualités respectives.
+    </p>
+    <div class="grid">
+      <div
+        *ngFor="let t of training"
+        class="col-4 flex flex-column gap-4 align-items-center border-1 border-black-alpha-10 border-round-md p-6"
+      >
+        <i [class]="'pi ' + t.icon" style="color: #2563eb; font-size: 2rem"></i>
+        <h4 class="text-center">{{ t.title }}</h4>
+        <p class="text-center">{{ t.description }}</p>
+        <button pButton label="En savoir plus" class="btn-inverse"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 5 -->
+<section class="section-5 container-fluid">
+  <div class="container">
+    <h3 class="text-center text-3xl">Nos orientations scientifiques</h3>
+    <div class="grid mt-6">
+      <div *ngFor="let course of courses" class="col-4 relative">
+        <p-card>
+          <ng-template pTemplate="header">
+            <img alt="Card" [src]="'assets/image/' + course.image" />
+          </ng-template>
+          <h4 class="text-center text-lg mb-5">{{ course.title }}</h4>
+          <p-divider></p-divider>
+          <div class="mt-5 flex justify-content-between align-items-center">
+            <span
+              ><i
+                class="pi pi-star-fill"
+                style="color: #636363; font-size: 0.8rem"
+              ></i>
+              {{ course.level }}</span
+            >
+            <button pButton label="S'inscrire" class="btn-inverse"></button>
+          </div>
+        </p-card>
+        <span class="price absolute text-sm px-2 py-1 border-round-md"
+          >${{ course.price }}</span
+        >
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6 -->
+<section class="section-6 container-fluid">
+  <div class="container">
+    <h3 class="text-center text-3xl">Nos adresses</h3>
+    <div class="grid mt-5">
+      <div *ngFor="let address of addresses" class="col flex flex-column">
+        <h4>{{ address.location }}</h4>
+        <p class="mt-3">{{ address.address1 }}</p>
+        <p class="mt-2">{{ address.address2 }}</p>
+        <p class="mt-2">{{ address.address3 }}</p>
+      </div>
+    </div>
+    <div class="carousel mt-6 mx-auto">
+      <p-carousel [value]="images" [numVisible]="2" [circular]="true">
+        <ng-template let-image pTemplate="item">
+          <div class="mb-2 mx-1">
+            <img
+              [src]="'assets/image/' + image.imageUrl"
+              [alt]="image.location"
+            />
+          </div>
+          <div>
+            <h4 class="mb-1 text-center">{{ image.location }}</h4>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+  </div>
+</section>

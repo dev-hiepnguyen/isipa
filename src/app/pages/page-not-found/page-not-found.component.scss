@@ -1,0 +1,16 @@
+.container-fluid {
+  padding: 90px 0 0 0;
+  height: calc(100vh - 148px);
+  background: rgba(0, 0, 0, 0.8) center center/cover no-repeat;
+  background-blend-mode: multiply;
+  h1,
+  h3 {
+    color: #fff;
+  }
+  h1 {
+    font-size: 150px;
+  }
+  h3 {
+    font-size: 35px;
+  }
+}

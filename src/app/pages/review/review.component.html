@@ -1,0 +1,414 @@
+<section class="container-fluid">
+  <ng-container *ngIf="registerInfo; else alt">
+    <div class="container py-8">
+      <div class="register-form-review relative" id="register-form-review">
+        <div id="page-1">
+          <img class="logo absolute" src="assets/image/logo.png" alt="logo" />
+          <!-- HEADER -->
+          <div class="form-header text-center">
+            <h1 class="text-7xl mb-3">I.S.I.P.A</h1>
+            <h4 class="mb-1">SERVICE INSCRIPTION. Shaumba et Matete</h4>
+            <h4 class="mb-1">
+              <span class="pi pi-phone mr-2"></span>
+              <span>(243) 89 97 29 179, (243) 82 05 56 090</span>
+            </h4>
+            <h4>
+              <span class="pi pi-envelope mr-2"></span>
+              <span>contact@isipa.cd</span>
+            </h4>
+            <h3
+              class="text-4xl mt-5 pb-3 border-double border-top-none border-left-none border-right-none"
+            >
+              Formulaire d'inscription n ISI {{ courseCode }}/{{ courseYear }}
+            </h3>
+          </div>
+          <!-- BODY -->
+          <div class="mt-4">
+            <p>
+              Tout formulaire contentant des faux renseignements ne sera pas
+              pris en considération.
+            </p>
+            <!-- I. -->
+            <div class="mt-4">
+              <h4 class="text-2xl">I. IDENTITE</h4>
+              <!-- 1 -->
+              <div class="grid align-items-center mt-2">
+                <p class="col-2">1. Nom</p>
+                <table class="table col-10">
+                  <tr>
+                    <td
+                      class="border-1 text-center"
+                      *ngFor="let char of firstName"
+                    >
+                      <strong
+                        ><em>{{ char | uppercase }}</em></strong
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- 2 -->
+              <div class="grid align-items-center">
+                <p class="col-2">2. Postnom/Prénom</p>
+                <table class="table col-10">
+                  <tr>
+                    <td
+                      class="border-1 text-center"
+                      *ngFor="let char of lastName"
+                    >
+                      <strong
+                        ><em>{{ char | uppercase }}</em></strong
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- 3 & 4 -->
+              <div class="mt-3">
+                <p class="">
+                  <span>
+                    3. Lieu et date de naissance:
+                    <strong
+                      ><em
+                        >{{ registerInfo.placeOfBirth | titlecase }} -
+                        {{ registerInfo.dateOfBirth | date }}</em
+                      ></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    4. Sexe:
+                    <strong
+                      ><em>{{
+                        registerInfo.gender === 1
+                          ? "Femme"
+                          : registerInfo.gender === 2
+                          ? "Autre"
+                          : "Homme"
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 5 & 6 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    5. Etat civil:
+                    <strong
+                      ><em>{{
+                        registerInfo.maritalStatus | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    6. Nationalité:
+                    <strong
+                      ><em>{{
+                        registerInfo.nationality | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 7 & 8 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    7. Nom du père:
+                    <strong
+                      ><em>{{
+                        registerInfo.nameOfFather | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    8. Nom de la mère:
+                    <strong
+                      ><em>{{
+                        registerInfo.nameOfMother | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 9 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    9. Province d'origine des parents:
+                    <strong
+                      ><em>{{
+                        registerInfo.provinceOfParents | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    District:
+                    <strong
+                      ><em>{{
+                        registerInfo.districtOfParents | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    Territoire:
+                    <strong
+                      ><em>{{ registerInfo.territory | titlecase }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 10 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    10. Adresse du candidat:
+                    <strong
+                      ><em>{{ registerInfo.address | titlecase }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    Téléphone:
+                    <strong
+                      ><em>{{ registerInfo.telephone | titlecase }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+            </div>
+            <!-- II. -->
+            <div class="mt-7">
+              <h4 class="text-2xl">II. ETUDES SECONDAIRES FAITES</h4>
+              <!-- 11 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    11. Nom de I'école secondaire fréquentée:
+                    <strong
+                      ><em>{{
+                        registerInfo.nameOfSecondarySchool | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 12 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    12. Adresse de I'école: Province:
+                    <strong
+                      ><em>{{
+                        registerInfo.provinceOfSecondarySchool | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    Territoire:
+                    <strong
+                      ><em>{{
+                        registerInfo.territoryOfSecondarySchool | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 13 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    13. Section suivie aux humanités:
+                    <strong
+                      ><em>{{ registerInfo.section | titlecase }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 14 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    14. Nom du centre de I'examen d'état:
+                    <strong
+                      ><em>{{
+                        registerInfo.centerName | titlecase
+                      }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+              <!-- 15 & 16 -->
+              <div class="grid align-items-center mt-2">
+                <p class="col-4">15. Année d'obtention du Diplomê d'Etat:</p>
+                <table class="table col-2">
+                  <tr>
+                    <td
+                      class="border-1 text-center"
+                      *ngFor="let char of yearOfDiploma"
+                    >
+                      <strong
+                        ><em>{{ char | uppercase }}</em></strong
+                      >
+                    </td>
+                  </tr>
+                </table>
+                <p class="col-4 text-right pr-6">
+                  16. Pourcentage du Diplomê d'Etat:
+                </p>
+                <table class="table col-1">
+                  <tr>
+                    <td
+                      class="border-1 text-center"
+                      *ngFor="let char of percentOfDiploma"
+                    >
+                      <strong
+                        ><em>{{ char | uppercase }}</em></strong
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <!-- 17 -->
+              <div class="grid align-items-center">
+                <p class="col-4">17. Numéro du Diplomê d'Etat:</p>
+                <table class="table col-2">
+                  <tr>
+                    <td
+                      class="border-1 text-center"
+                      *ngFor="let char of scoreOfDiploma"
+                    >
+                      <strong
+                        ><em>{{ char | uppercase }}</em></strong
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <p class="mt-4">
+                Les élèves finalistes de I'année en cours ne rempliront pas les
+                points 18 et 19.
+              </p>
+            </div>
+            <!-- III. -->
+            <div class="mt-7">
+              <h4 class="text-2xl">III. OCCUPATIONS APRES LES HUMANITES</h4>
+              <!-- 18 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    18. Activités professionnelles:
+                    <strong
+                      ><em>{{ registerInfo.activity | titlecase }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="page-2">
+          <!-- BODY -->
+          <div class="mt-4">
+            <!-- 19 -->
+            <div class="mt-5">
+              <p class="">
+                19. Derniers diplomês académiques en cours et obtenus:
+              </p>
+
+              <p-table
+                [value]="registerInfo.progress"
+                styleClass="p-datatable-gridlines mt-3"
+              >
+                <ng-template pTemplate="header">
+                  <tr>
+                    <th class="text-center">Année academique</th>
+                    <th class="text-center">Titre du diplomê</th>
+                    <th class="text-center">Etablissement</th>
+                    <th class="text-center">Année d'études</th>
+                    <th class="text-center">Mention</th>
+                  </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-progress>
+                  <tr>
+                    <td>{{ progress.academicYear }}</td>
+                    <td>{{ progress.title }}</td>
+                    <td>{{ progress.establishment }}</td>
+                    <td>{{ progress.year }}</td>
+                    <td>{{ progress.mention }}</td>
+                  </tr>
+                </ng-template>
+              </p-table>
+            </div>
+            <!-- IV. -->
+            <div class="mt-7">
+              <h4 class="text-2xl">
+                IV. CHOIX (Tout candidat est tenu de faire deux choix)
+              </h4>
+              <!-- 20 -->
+              <div class="mt-5">
+                <p class="">
+                  <span>
+                    20. Choix:
+                    <strong
+                      ><em>{{ registerInfo.choice | titlecase }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    Promotion:
+                    <strong
+                      ><em>{{ registerInfo.promotion | titlecase }}</em></strong
+                    >
+                  </span>
+                  <span class="ml-8">
+                    Vacation:
+                    <strong
+                      ><em>{{ registerInfo.vacation | titlecase }}</em></strong
+                    >
+                  </span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- FOOTER -->
+          <div class="mt-6">
+            <p>
+              Je certifie sur mon honneur que les renseignements ci-haut fournis
+              sont exacts. Le paiement de certains frais est anticipatif pour
+              confirmer I'inscription. Je m'engage à payer les frais dans le
+              délai indiqué. Les frais payés sont non remboursables.
+            </p>
+            <div class="flex justify-content-end mt-4">
+              <div class="flex-grow-0 text-center">
+                <p class="mb-2">
+                  Fait à
+                  <strong
+                    ><em>{{ registerInfo.location | titlecase }}</em></strong
+                  >, le
+                  <strong
+                    ><em>{{ today | date : "d/M/yyyy" }}</em></strong
+                  >
+                </p>
+                <p class="">Noms et signature du candidat</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container mb-5">
+      <div class="text">
+        <button pButton label="Exporter PDF" (click)="exportPDF()"></button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #alt>
+    <div class="container pt-8">
+      <h1 class="text-5xl mb-3">Pas de données</h1>
+      <h3 class="text-lg">Veuillez vous assurer que vous êtes inscrit</h3>
+    </div>
+  </ng-template>
+</section>
+
+<div id="test"></div>

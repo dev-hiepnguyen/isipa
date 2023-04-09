@@ -1,0 +1,11 @@
+.container-fluid {
+  padding: 90px 0 0 0;
+  height: calc(100vh - 148px);
+  background: url("../../../assets/image/background.JPG") rgba(0, 0, 0, 0.6)
+    center center/cover no-repeat;
+  background-blend-mode: multiply;
+
+  h1 {
+    color: #fff;
+  }
+}

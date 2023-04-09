@@ -1,0 +1,54 @@
+@import "src/assets/scss/variables.scss";
+
+h3,
+h4 {
+  color: $clr-title;
+}
+
+section {
+  padding: 80px 0 0 0;
+
+  .heading {
+    background-color: $clr-background;
+    height: 300px;
+
+    h3 {
+      color: $clr-title;
+    }
+  }
+
+  .guide {
+    .text {
+      .block {
+        line-height: 31px;
+        ul {
+          padding-left: 20px;
+          li {
+            list-style-type: square;
+          }
+        }
+      }
+    }
+
+    .media {
+      img {
+        max-width: 100%;
+      }
+    }
+  }
+
+  .form {
+    background-color: $clr-background;
+    min-height: 500px;
+    border-bottom: 1px solid #ccc;
+
+    ::ng-deep .p-dropdown,
+    ::ng-deep .p-calendar {
+      display: flex !important;
+    }
+
+    button.invalid {
+      cursor: not-allowed;
+    }
+  }
+}

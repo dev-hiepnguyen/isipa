@@ -1,0 +1,386 @@
+<!-- SECTION 5 -->
+<section class="container-fluid">
+  <div class="heading flex justify-content-center align-items-center">
+    <h3 class="text-center text-7xl">Inscription</h3>
+  </div>
+
+  <div class="container py-8">
+    <div class="guide grid justify-content-between">
+      <div class="text col-8">
+        <div class="block block-1 mb-8">
+          <h4 class="text-center text-xl mb-5">Les conditions d'inscription</h4>
+          <div class="mt-3">
+            <span class="font-bold">A. </span>Formulaire : 20$
+          </div>
+          <div class="mt-3">
+            <span class="font-bold">B. </span>Si moins de 60% aux EXETATS, test
+            d’admission : 10$ (à payer le jour du test) – L1 uniquement. Matière
+            : Français, Mathématique, Culture Générale, Anglais
+          </div>
+          <div class="mt-3">
+            <div>
+              <span class="font-bold">C. </span>Confirmation d’inscription
+            </div>
+            <ul class="mt-2">
+              <li>
+                25$ des frais administratifs + Minerval première tranche +
+              </li>
+              <li>20$ de frais d’inscription (Licence) – 30$ (Master) +</li>
+              <li>
+                10$ de la fiche de scolarité (L3 et M2 uniquement) + 10’000fc
+                (Photos passeport)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="block block-2">
+          <h4 class="text-center text-xl mb-5">
+            Ré-inscription pour une classe supérieure
+          </h4>
+          <div class="mt-3">
+            <span class="font-bold">A. </span>Réinscription : 20$ (Licence) –
+            30$ (Master)
+          </div>
+          <div class="mt-3">
+            <span class="font-bold">B. </span>Minerval première tranche : voir
+            enseignements organisés (pour les classes terminales, les frais sont
+            à payer en deux tranches)
+          </div>
+          <div class="mt-3">
+            <span class="font-bold">C. </span>Relevé des côtes, Attestation de
+            réussite, Attestation de recherche, Recommandation de stage : 10$
+          </div>
+          <div class="mt-3">
+            <span class="font-bold">D. </span>Fiche de cotation stage : 5$
+          </div>
+          <div class="mt-3">
+            <span class="font-bold">E. </span>Frais de participation aux
+            sessions : 15$ (Licence) – 20$ (Master)
+          </div>
+          <div class="mt-3 font-bold">
+            Documents : Bulletins 5ème et 6ème des humanités, Diplôme d’Etat (ou
+            Attestation de réussite), Attestation de bonne vie et mœurs,
+            Attestation de naissance et 2 Photos passeport, Relevés des classes
+            inférieures (Pour une inscription spéciale). La Rentrée est prévue
+            pour le 15-10-2022.
+          </div>
+        </div>
+      </div>
+      <div class="media col-3">
+        <img src="assets/image/register.jpg" alt="register" />
+      </div>
+    </div>
+  </div>
+
+  <div class="form py-8">
+    <div class="container">
+      <h4 class="text-center text-2xl">Formulaire d'enregistrement</h4>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="font-bold mt-3">I. IDENTITE</div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="lastName">1. Nom (*requis)</label>
+          <input pInputText id="lastName" formControlName="lastName" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="firstName">2. Postnom/Prénom (*requis)</label>
+          <input pInputText id="firstName" formControlName="firstName" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label>3. Lieu et date de naissance</label>
+          <div class="grid">
+            <div class="col-6 flex flex-column">
+              <label for="placeOfBirth">Lieu (*requis)</label>
+              <input
+                pInputText
+                id="placeOfBirth"
+                formControlName="placeOfBirth"
+              />
+            </div>
+            <div class="col-6 flex flex-column">
+              <label for="dateOfBirth">Date (*requis)</label>
+              <p-calendar
+                id="dateOfBirth"
+                formControlName="dateOfBirth"
+                [maxDate]="maxDate"
+              ></p-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label>4. Sexe (*requis)</label>
+          <div class="flex gap-5 ml-5">
+            <div class="flex">
+              <p-radioButton
+                inputId="male"
+                [value]="0"
+                formControlName="gender"
+              ></p-radioButton>
+              <label for="male" class="ml-2">Homme</label>
+            </div>
+            <div class="flex">
+              <p-radioButton
+                inputId="femme"
+                [value]="1"
+                formControlName="gender"
+              ></p-radioButton>
+              <label for="femme" class="ml-2">Femme</label>
+            </div>
+            <div class="flex">
+              <p-radioButton
+                inputId="autre"
+                [value]="2"
+                formControlName="gender"
+              ></p-radioButton>
+              <label for="autre" class="ml-2">Autre</label>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="maritalStatus">5. Etat civil (*requis)</label>
+          <input
+            pInputText
+            id="maritalStatus"
+            formControlName="maritalStatus"
+          />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="nationality">6. Nationalité (*requis)</label>
+          <p-dropdown
+            id="nationality"
+            formControlName="nationality"
+            [options]="countries"
+            placeholder="Choisissez un pays"
+          ></p-dropdown>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="nameOfFather">7. Nom du père (*requis)</label>
+          <input pInputText id="nameOfFather" formControlName="nameOfFather" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="nameOfMother">8. Nom de la mère (*requis)</label>
+          <input pInputText id="nameOfMother" formControlName="nameOfMother" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="provinceOfParents"
+            >9. Province d'origine des parents (*requis)</label
+          >
+          <input
+            pInputText
+            id="provinceOfParents"
+            formControlName="provinceOfParents"
+          />
+          <div class="grid">
+            <div class="col-6 flex flex-column">
+              <label for="districtOfParents">District (*requis)</label>
+              <input
+                pInputText
+                id="districtOfParents"
+                formControlName="districtOfParents"
+              />
+            </div>
+            <div class="col-6 flex flex-column">
+              <label for="territory">Territoire (*requis)</label>
+              <input pInputText id="territory" formControlName="territory" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <div class="grid">
+            <div class="col-6 flex flex-column">
+              <label for="address">10. Adresse du candidat (*requis)</label>
+              <input pInputText id="address" formControlName="address" />
+            </div>
+            <div class="col-6 flex flex-column">
+              <label for="telephone">Téléphone (*requis)</label>
+              <input pInputText id="telephone" formControlName="telephone" />
+            </div>
+          </div>
+        </div>
+
+        <div class="font-bold mt-5">II. ETUDES SECONDAIRES FAITES</div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="nameOfSecondarySchool"
+            >11. Nom de I'école secondaire fréquentée (*requis)</label
+          >
+          <input
+            pInputText
+            id="nameOfSecondarySchool"
+            formControlName="nameOfSecondarySchool"
+          />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label>12. Adresse de I'école (*requis)</label>
+          <div class="grid">
+            <div class="col-6 flex flex-column">
+              <label for="provinceOfSecondarySchool">Province (*requis)</label>
+              <input
+                pInputText
+                id="provinceOfSecondarySchool"
+                formControlName="provinceOfSecondarySchool"
+              />
+            </div>
+            <div class="col-6 flex flex-column">
+              <label for="territoryOfSecondarySchool"
+                >Territoire (*requis)</label
+              >
+              <input
+                pInputText
+                id="territoryOfSecondarySchool"
+                formControlName="territoryOfSecondarySchool"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="section"
+            >13. Section suivie aux humanités (*requis)</label
+          >
+          <input pInputText id="section" formControlName="section" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="centerName"
+            >14. Nom du centre de I'examen d'état (*requis)</label
+          >
+          <input pInputText id="centerName" formControlName="centerName" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="yearOfDiploma"
+            >15. Année d'obtention du Diplomê d'Etat (*requis)</label
+          >
+          <input
+            pInputText
+            id="yearOfDiploma"
+            formControlName="yearOfDiploma"
+            type="number"
+            [min]="minYear"
+            [max]="maxYear"
+          />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="percentOfDiploma"
+            >16. Pourcentage du Diplomê d'Etat (*requis)</label
+          >
+          <input
+            pInputText
+            id="percentOfDiploma"
+            formControlName="percentOfDiploma"
+            type="number"
+            [min]="1"
+            [max]="100"
+          />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="scoreOfDiploma"
+            >17. Numéro du Diplomê d'Etat (*requis)</label
+          >
+          <input
+            pInputText
+            id="scoreOfDiploma"
+            formControlName="scoreOfDiploma"
+          />
+          <p>
+            Les élèves finalistes de I'année en cours ne rempliront pas les
+            points 18 et 19.
+          </p>
+        </div>
+
+        <div class="font-bold mt-5">III. OCCUPATIONS APRES LES HUMANITES</div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="activity">18. Activités professionnelles (*requis)</label>
+          <input pInputText id="activity" formControlName="activity" />
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="lastName"
+            >19. Derniers diplomês académiques en cours et obtenus
+            (*requis)</label
+          >
+          <div class="text-center">
+            <button
+              type="button"
+              pButton
+              icon="pi pi-plus"
+              class="p-button-success p-button-rounded p-button-outlined p-button-sm"
+              (click)="addProgress()"
+            ></button>
+          </div>
+          <ng-container formArrayName="progress">
+            <ng-container *ngFor="let p of progress.controls; let i = index">
+              <div class="grid align-items-center" [formGroupName]="i">
+                <div class="col-2 flex flex-column">
+                  <label for="academicYear">Année academique</label>
+                  <input
+                    pInputText
+                    id="academicYear"
+                    formControlName="academicYear"
+                    type="number"
+                  />
+                </div>
+                <div class="col-2 flex flex-column">
+                  <label for="title">Titre du diplomê</label>
+                  <input pInputText id="title" formControlName="title" />
+                </div>
+                <div class="col-3 flex flex-column">
+                  <label for="establishment">Etablissement</label>
+                  <input
+                    pInputText
+                    id="establishment"
+                    formControlName="establishment"
+                  />
+                </div>
+                <div class="col-2 flex flex-column">
+                  <label for="year">Année d'études</label>
+                  <input pInputText id="year" formControlName="year" />
+                </div>
+                <div class="col-2 flex flex-column">
+                  <label for="mention">Mention</label>
+                  <input pInputText id="mention" formControlName="mention" />
+                </div>
+                <div class="col-1 align-self-end flex justify-content-end">
+                  <button
+                    pButton
+                    icon="pi pi-times"
+                    class="p-button-danger p-button-rounded p-button-outlined p-button-sm"
+                    (click)="deleteProgress(i)"
+                  ></button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="font-bold mt-5">
+          IV. CHOIX (Tout candidat est tenu de faire deux choix)
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <div class="grid">
+            <div class="col-4 flex flex-column">
+              <label for="choice">20. Choix</label>
+              <input pInputText id="choice" formControlName="choice" />
+            </div>
+            <div class="col-4 flex flex-column">
+              <label for="promotion">Promotion</label>
+              <input pInputText id="promotion" formControlName="promotion" />
+            </div>
+            <div class="col-4 flex flex-column">
+              <label for="vacation">Vacation</label>
+              <input pInputText id="vacation" formControlName="vacation" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column gap-2 mt-3">
+          <label for="location">Fait à (*requis)</label>
+          <input pInputText id="location" formControlName="location" />
+        </div>
+        <div class="mt-6 grid">
+          <button
+            pButton
+            label="Submit"
+            class="col-12"
+            [disabled]="form.invalid"
+            [ngClass]="{ invalid: form.invalid }"
+          ></button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
